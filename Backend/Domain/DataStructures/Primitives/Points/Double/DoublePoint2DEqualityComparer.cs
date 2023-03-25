@@ -1,8 +1,8 @@
-﻿using Backend.Domain.DataStructures.Primitives.Points.Double;
+using Backend.Domain.DataStructures.Primitives.Points.Double;
 
 namespace Backend.Domain.DataStructures.Primitives;
 
-public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint>
+public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint2D>
 {
 
     private readonly double _coordinatesTolerance;
@@ -12,19 +12,19 @@ public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint>
         _coordinatesTolerance = coordinatesTolerance;
     }
 
-    public bool Equals(DoublePoint? x, DoublePoint? y)
+    public bool Equals(DoublePoint2D? x, DoublePoint2D? y)
     {
         if (x == null && y == null)
             return true;
         else if (x == null || y == null)
             return false;
-        else if(Math.Abs(x.X - y.X) <= _coordinatesTolerance && Math.Abs(x.Y - y.Y) <= _coordinatesTolerance)
+        else if (Math.Abs(x.X - y.X) <= _coordinatesTolerance && Math.Abs(x.Y - y.Y) <= _coordinatesTolerance)
             return true;
         else
             return false;
     }
 
-    public int GetHashCode(DoublePoint obj)
+    public int GetHashCode(DoublePoint2D obj)
     {
         return HashCode.Combine(obj.X, obj.Y);
     }
