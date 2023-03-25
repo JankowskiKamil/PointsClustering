@@ -1,9 +1,14 @@
+
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
 .certs
 .direnv
 certs
 .env
 bin
-NestData/
 *.swp
 *.*~
 .DS_Store

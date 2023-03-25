@@ -1,0 +1,538 @@
+﻿root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+charset = utf-8
+max_line_length = 120
+tab_width = 4
+
+[*.cs]
+# CSharp formatting rules:
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+dotnet_naming_style.lower_camel_case_style.capitalization = camel_case
+
+# dotnet roslyn analyzers general group-wise settings
+## this deletes unused functions, but we may want to keep them, so set info only
+dotnet_analyzer_diagnostic.category-CodeQuality.severity = info
+dotnet_analyzer_diagnostic.category-Design.severity = warning
+dotnet_analyzer_diagnostic.category-Documentation.severity = warning
+dotnet_analyzer_diagnostic.category-Globalization.severity = warning
+dotnet_analyzer_diagnostic.category-Interoperability.severity = warning
+dotnet_analyzer_diagnostic.category-Maintainability.severity = warning
+dotnet_analyzer_diagnostic.category-Naming.severity = warning
+dotnet_analyzer_diagnostic.category-Performance.severity = warning
+dotnet_analyzer_diagnostic.category-SingleFile.severity = warning
+dotnet_analyzer_diagnostic.category-Reliability.severity = warning
+dotnet_analyzer_diagnostic.category-Security.severity = warning
+## causes lots of cast errors and veeery long lint command when set to warning
+dotnet_analyzer_diagnostic.category-Style.severity = info
+dotnet_analyzer_diagnostic.category-Usage.severity = warning
+
+# dotnet general diagnostics (group overrides) and their IDE supplements
+## force simple code
+dotnet_diagnostic.IDE0001.severity = warning
+## unused usings
+dotnet_diagnostic.IDE0005.severity = warning
+## var instead of explicit type
+csharp_style_var_for_built_in_types = true
+csharp_style_var_when_type_is_apparent = true
+csharp_style_var_elsewhere = true
+dotnet_diagnostic.IDE0007.severity = warning
+## can avoid curly braces for singleline code blocks
+csharp_prefer_braces = when_multiline
+dotnet_diagnostic.IDE0011.severity = none
+## don't care about expression bodies for methods
+dotnet_diagnostic.IDE0022.severity = none
+## prefer expression bodies for properties
+dotnet_diagnostic.IDE0025.severity = warning
+## prefer expression bodies for indexers
+dotnet_diagnostic.IDE0026.severity = warning
+## force modifier order
+dotnet_diagnostic.IDE0036.severity = warning
+## require accessibility mods
+dotnet_diagnostic.IDE0040.severity = warning
+## require readonly modifiers where possible
+dotnet_diagnostic.IDE0044.severity = warning
+## general formatting
+dotnet_diagnostic.IDE0055.severity = warning
+## simplify interpolation
+dotnet_diagnostic.IDE0071.severity = warning
+## simplify new expressions
+dotnet_diagnostic.IDE0090.severity = warning
+## namespace must match folder structure
+dotnet_diagnostic.IDE0130.severity = warning
+## file-scoped namespace
+csharp_style_namespace_declarations = file_scoped
+dotnet_diagnostic.IDE0161.severity = warning
+## allow statics on interfaces
+dotnet_diagnostic.CA1000.severity = none
+## allow Obsolete without messages
+dotnet_diagnostic.CA1041.severity = none
+## allow instance-visible fields
+dotnet_diagnostic.CA1051.severity = none
+## CultureInfo ("the behavior of could vary .. based on the current user's locale settings")
+dotnet_diagnostic.CA1305.severity = none
+dotnet_diagnostic.CA1310.severity = none
+## Allow case-only difference
+dotnet_diagnostic.CA1708.severity = none
+## CA1710: Identifiers should have correct suffix (rename class to end with Collection, Dictionary etc.)
+dotnet_diagnostic.CA1710.severity = none
+## Allow suffix like Collection when it's not a collection
+dotnet_diagnostic.CA1711.severity = none
+## allow type names other than starting with T
+dotnet_diagnostic.CA1715.severity = none
+## allow reserved keywords in method/field names
+dotnet_diagnostic.CA1716.severity = none
+## allow type names in method/field names
+dotnet_diagnostic.CA1720.severity = none
+## allow using Exception, we have so many of them
+dotnet_diagnostic.CA2201.severity = none
+## CA2208: Instantiate argument exceptions correctly
+dotnet_diagnostic.CA2208.severity = none
+
+# CS section requires compilation, so it won't get catched nor fixed by linting,
+# only via build command and possibly IDEs
+## variables declared but not used are not permitted
+dotnet_diagnostic.CS0168 = warning
+## variables assigned but not used are not permitted
+dotnet_diagnostic.CS0219 = warning
+## private fields assigned but not used are not permitted
+dotnet_diagnostic.CS0414 = warning
+## uninitialized fields are not allowed
+dotnet_diagnostic.CS0649 = warning
+## nullable -> non-nullable, null reference etc. we don't want this in the code
+dotnet_diagnostic.CS8000.severity = warning
+dotnet_diagnostic.CS8001.severity = warning
+dotnet_diagnostic.CS8002.severity = warning
+dotnet_diagnostic.CS8003.severity = warning
+dotnet_diagnostic.CS8004.severity = warning
+dotnet_diagnostic.CS8019.severity = warning
+dotnet_diagnostic.CS8025.severity = warning
+## non-nullable fields allowed after exiting constructor
+dotnet_diagnostic.CS8618.severity = none
+
+# STYLECOP
+# we disable most (most of them are fulfilled by roslyn), but enable whitespace stuff that we are interested in (that roslyn lack)
+# info: all comments with "<!" refer to rules ABOVE it, don't ask
+# special rules
+dotnet_diagnostic.SA0001.severity = none
+# <!-- XML comment analysis disabled -->
+dotnet_diagnostic.SA0002.severity = none
+# <!-- Invalid settings file -->
+
+# =StyleCop.Analyzers.SpacingRules">
+dotnet_diagnostic.SA1000.severity = none
+# <!-- Keywords should be spaced correctly -->
+dotnet_diagnostic.SA1001.severity = none
+# <!-- Commas should be spaced correctly -->
+dotnet_diagnostic.SA1002.severity = none
+# <!-- Semicolons should be spaced correctly -->
+dotnet_diagnostic.SA1003.severity = none
+# <!-- Symbols should be spaced correctly -->
+dotnet_diagnostic.SA1004.severity = none
+# <!-- Documentation lines should begin with single space -->
+dotnet_diagnostic.SA1005.severity = none
+# <!-- Single line comments should begin with single space -->
+dotnet_diagnostic.SA1006.severity = none
+# <!-- Preprocessor keywords should not be preceded by space -->
+dotnet_diagnostic.SA1007.severity = none
+# <!-- Operator keyword should be followed by space -->
+dotnet_diagnostic.SA1008.severity = none
+# <!-- Opening parenthesis should be spaced correctly -->
+dotnet_diagnostic.SA1009.severity = none
+# <!-- Closing parenthesis should be spaced correctly -->
+dotnet_diagnostic.SA1010.severity = none
+# <!-- Opening square brackets should be spaced correctly -->
+dotnet_diagnostic.SA1011.severity = none
+# <!-- Closing square brackets should be spaced correctly -->
+dotnet_diagnostic.SA1012.severity = none
+# <!-- Opening braces should be spaced correctly -->
+dotnet_diagnostic.SA1013.severity = none
+# <!-- Closing braces should be spaced correctly -->
+dotnet_diagnostic.SA1014.severity = none
+# <!-- Opening generic brackets should be spaced correctly -->
+dotnet_diagnostic.SA1015.severity = none
+# <!-- Closing generic brackets should be spaced correctly -->
+dotnet_diagnostic.SA1016.severity = none
+# <!-- Opening attribute brackets should be spaced correctly -->
+dotnet_diagnostic.SA1017.severity = none
+# <!-- Closing attribute brackets should be spaced correctly -->
+dotnet_diagnostic.SA1018.severity = none
+# <!-- Nullable type symbols should be spaced correctly -->
+dotnet_diagnostic.SA1019.severity = none
+# <!-- Member access symbols should be spaced correctly -->
+dotnet_diagnostic.SA1020.severity = none
+# <!-- Increment decrement symbols should be spaced correctly -->
+dotnet_diagnostic.SA1021.severity = none
+# <!-- Negative signs should be spaced correctly -->
+dotnet_diagnostic.SA1022.severity = none
+# <!-- Positive signs should be spaced correctly -->
+dotnet_diagnostic.SA1023.severity = none
+# <!-- Dereference and access of symbols should be spaced correctly -->
+dotnet_diagnostic.SA1024.severity = none
+# <!-- Colons should be spaced correctly -->
+dotnet_diagnostic.SA1025.severity = none
+# <!-- Code should not contain multiple whitespace in a row -->
+dotnet_diagnostic.SA1026.severity = none
+# <!-- Code should not contain space after new or stackalloc keyword in implicitly typed array allocation -->
+dotnet_diagnostic.SA1027.severity = none
+# <!-- Use tabs correctly -->
+dotnet_diagnostic.SA1028.severity = none
+# <!-- Code should not contain trailing whitespace -->
+
+# StyleCop.Analyzers.ReadabilityRules=>
+dotnet_diagnostic.SA1100.severity = none
+# <!-- Do not prefix calls with base unless local implementation exists -->
+dotnet_diagnostic.SA1101.severity = none
+# <!-- Prefix local calls with this -->
+dotnet_diagnostic.SA1102.severity = none
+# <!-- Query clause should follow previous clause -->
+dotnet_diagnostic.SA1103.severity = none
+# <!-- Query clauses should be on separate lines or all on one line -->
+dotnet_diagnostic.SA1104.severity = none
+# <!-- Query clause should begin on new line when previous clause spans multiple lines -->
+dotnet_diagnostic.SA1105.severity = none
+# <!-- Query clauses spanning multiple lines should begin on own line -->
+dotnet_diagnostic.SA1106.severity = none
+# <!-- Code should not contain empty statements -->
+dotnet_diagnostic.SA1107.severity = none
+# <!-- Code should not contain multiple statements on one line -->
+dotnet_diagnostic.SA1108.severity = none
+# <!-- Block statements should not contain embedded comments -->
+dotnet_diagnostic.SA1109.severity = none
+# <!-- Block statements should not contain embedded regions -->
+dotnet_diagnostic.SA1110.severity = none
+# <!-- Opening parenthesis or bracket should be on declaration line -->
+dotnet_diagnostic.SA1111.severity = none
+# <!-- Closing parenthesis should be on line of last parameter -->
+dotnet_diagnostic.SA1112.severity = none
+# <!-- Closing parenthesis should be on line of opening parenthesis -->
+dotnet_diagnostic.SA1113.severity = none
+# <!-- Comma should be on the same line as previous parameter -->
+dotnet_diagnostic.SA1114.severity = none
+# <!-- Parameter list should follow declaration -->
+dotnet_diagnostic.SA1115.severity = none
+# <!-- Parameter should follow comma -->
+dotnet_diagnostic.SA1116.severity = none
+# <!-- Split parameters should start on line after declaration -->
+dotnet_diagnostic.SA1117.severity = none
+# <!-- Parameters should be on same line or separate lines -->
+dotnet_diagnostic.SA1118.severity = none
+# <!-- Parameter should not span multiple lines -->
+dotnet_diagnostic.SA1120.severity = none
+# <!-- Comments should contain text -->
+dotnet_diagnostic.SA1121.severity = none
+# <!-- Use built-in type alias -->
+dotnet_diagnostic.SA1122.severity = none
+# <!-- Use string.Empty for empty strings -->
+dotnet_diagnostic.SA1123.severity = none
+# <!-- Do not place regions within elements -->
+dotnet_diagnostic.SA1124.severity = none
+# <!-- Do not use regions -->
+dotnet_diagnostic.SA1125.severity = none
+# <!-- Use shorthand for nullable types -->
+dotnet_diagnostic.SA1126.severity = none
+# <!-- Prefix calls correctly -->
+dotnet_diagnostic.SA1127.severity = none
+# <!-- Generic type constraints should be on their own line -->
+dotnet_diagnostic.SA1128.severity = none
+# <!-- Put constructor initializers on their own line -->
+dotnet_diagnostic.SA1129.severity = none
+# <!-- Do not use default value type constructor -->
+dotnet_diagnostic.SA1130.severity = none
+# <!-- Use lambda syntax -->
+dotnet_diagnostic.SA1131.severity = none
+# <!-- Use readable conditions -->
+dotnet_diagnostic.SA1132.severity = none
+# <!-- Do not combine fields -->
+dotnet_diagnostic.SA1133.severity = none
+# <!-- Do not combine attributes -->
+dotnet_diagnostic.SA1134.severity = none
+# <!-- Attributes should not share line -->
+dotnet_diagnostic.SA1135.severity = none
+# <!-- Using directives should be qualified -->
+dotnet_diagnostic.SA1136.severity = none
+# <!-- Enum values should be on separate lines -->
+dotnet_diagnostic.SA1137.severity = none
+# <!-- Elements should have the same indentation -->
+dotnet_diagnostic.SA1139.severity = none
+# <!-- Use literal suffix notation instead of casting -->
+dotnet_diagnostic.SX1101.severity = none
+# <!-- Do not prefix local calls with 'this.' -->
+
+# =StyleCop.Analyzers.OrderingRules"
+dotnet_diagnostic.SA1200.severity = none
+# <!-- Using directives should be placed correctly -->
+dotnet_diagnostic.SA1201.severity = none
+# <!-- Elements should appear in the correct order -->
+dotnet_diagnostic.SA1202.severity = none
+# <!-- Elements should be ordered by access -->
+dotnet_diagnostic.SA1203.severity = none
+# <!-- Constants should appear before fields -->
+dotnet_diagnostic.SA1204.severity = none
+# <!-- Static elements should appear before instance elements -->
+dotnet_diagnostic.SA1205.severity = none
+# <!-- Partial elements should declare access -->
+dotnet_diagnostic.SA1206.severity = none
+# <!-- Declaration keywords should follow order -->
+dotnet_diagnostic.SA1207.severity = none
+# <!-- Protected should come before internal -->
+dotnet_diagnostic.SA1208.severity = none
+# <!-- System using directives should be placed before other using directives -->
+dotnet_diagnostic.SA1209.severity = none
+# <!-- Using alias directives should be placed after other using directives -->
+dotnet_diagnostic.SA1210.severity = none
+# <!-- Using directives should be ordered alphabetically by namespace -->
+dotnet_diagnostic.SA1211.severity = none
+# <!-- Using alias directives should be ordered alphabetically by alias name -->
+dotnet_diagnostic.SA1212.severity = none
+# <!-- Property accessors should follow order -->
+dotnet_diagnostic.SA1213.severity = none
+# <!-- Event accessors should follow order -->
+dotnet_diagnostic.SA1214.severity = none
+# <!-- Readonly fields should appear before non-readonly fields -->
+dotnet_diagnostic.SA1216.severity = none
+# <!-- Using static directives should be placed at the correct location -->
+dotnet_diagnostic.SA1217.severity = none
+# <!-- Using static directives should be ordered alphabetically -->
+
+# <Rules AnalyzerId==StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.NamingRules">
+dotnet_diagnostic.SA1300.severity = none
+# <!-- Element should begin with upper-case letter -->
+dotnet_diagnostic.SA1301.severity = none
+# <!-- Element should begin with lower-case letter -->
+dotnet_diagnostic.SA1302.severity = warning
+# <!-- Interface names should begin with I -->
+dotnet_diagnostic.SA1303.severity = none
+# <!-- Const field names should begin with upper-case letter -->
+dotnet_diagnostic.SA1304.severity = none
+# <!-- Non-private readonly fields should begin with upper-case letter -->
+dotnet_diagnostic.SA1305.severity = none
+# <!-- Field names should not use Hungarian notation -->
+dotnet_diagnostic.SA1306.severity = none
+# <!-- Field names should begin with lower-case letter -->
+dotnet_diagnostic.SA1307.severity = warning
+# <!-- Accessible fields should begin with upper-case letter -->
+dotnet_diagnostic.SA1308.severity = none
+# <!-- Variable names should not be prefixed -->
+dotnet_diagnostic.SA1309.severity = none
+# <!-- Field names should not begin with underscore -->
+dotnet_diagnostic.SA1310.severity = none
+# <!-- Field names should not contain underscore -->
+dotnet_diagnostic.SA1311.severity = none
+# <!-- Static readonly fields should begin with upper-case letter -->
+dotnet_diagnostic.SA1312.severity = warning
+# <!-- Variable names should begin with lower-case letter -->
+dotnet_diagnostic.SA1313.severity = warning
+# <!-- Parameter names should begin with lower-case letter -->
+dotnet_diagnostic.SA1314.severity = none
+# <!-- Type parameter names should begin with T -->
+dotnet_diagnostic.SX1309.severity = none
+# <!-- Field names should begin with underscore -->
+dotnet_diagnostic.SX1309S.severity = none
+# <!-- Static field names should begin with underscore -->
+
+# <Rules AnalyzerId==StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.MaintainabilityRules">
+dotnet_diagnostic.SA1119.severity = none
+# <!-- Statement should not use unnecessary parenthesis -->
+dotnet_diagnostic.SA1316.severity = none
+# allow lower-case tuple elements names
+dotnet_diagnostic.SA1400.severity = none
+# <!-- Access modifier should be declared -->
+dotnet_diagnostic.SA1401.severity = none
+# <!-- Fields should be private -->
+dotnet_diagnostic.SA1402.severity = none
+# <!-- File may only contain a single type -->
+dotnet_diagnostic.SA1403.severity = none
+# <!-- File may only contain a single namespace -->
+dotnet_diagnostic.SA1404.severity = none
+# <!-- Code analysis suppression should have justification -->
+dotnet_diagnostic.SA1405.severity = none
+# <!-- Debug.Assert should provide message text -->
+dotnet_diagnostic.SA1406.severity = none
+# <!-- Debug.Fail should provide message text -->
+dotnet_diagnostic.SA1407.severity = none
+# <!-- Arithmetic expressions should declare precedence -->
+dotnet_diagnostic.SA1408.severity = none
+# <!-- Conditional expressions should declare precedence -->
+dotnet_diagnostic.SA1409.severity = none
+# <!-- Remove unnecessary code -->
+dotnet_diagnostic.SA1410.severity = none
+# <!-- Remove delegate parenthesis when possible -->
+dotnet_diagnostic.SA1411.severity = none
+# <!-- Attribute constructor should not use unnecessary parenthesis -->
+dotnet_diagnostic.SA1412.severity = none
+# <!-- Store files as UTF-8 with byte order mark -->
+dotnet_diagnostic.SA1413.severity = none
+# <!-- Use trailing comma in multi-line initializers -->
+dotnet_diagnostic.SA1414.severity = none
+# allow unnamed tuple fields
+
+# <Rules AnalyzerId==StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.LayoutRules">
+dotnet_diagnostic.SA1500.severity = none
+# <!-- Braces for multi-line statements should not share line -->
+dotnet_diagnostic.SA1501.severity = none
+# <!-- Statement should not be on a single line -->
+dotnet_diagnostic.SA1502.severity = none
+# <!-- Element should not be on a single line -->
+dotnet_diagnostic.SA1503.severity = none
+# <!-- Braces should not be omitted -->
+dotnet_diagnostic.SA1504.severity = none
+# <!-- All accessors should be single-line or multi-line -->
+dotnet_diagnostic.SA1505.severity = warning
+# <!-- Opening braces should not be followed by blank line -->
+dotnet_diagnostic.SA1506.severity = warning
+# <!-- Element documentation headers should not be followed by blank line -->
+dotnet_diagnostic.SA1507.severity = warning
+# <!-- Code should not contain multiple blank lines in a row -->
+dotnet_diagnostic.SA1508.severity = warning
+# <!-- Closing braces should not be preceded by blank line -->
+dotnet_diagnostic.SA1509.severity = warning
+# <!-- Opening braces should not be preceded by blank line -->
+dotnet_diagnostic.SA1510.severity = warning
+# <!-- Chained statement blocks should not be preceded by blank line -->
+dotnet_diagnostic.SA1511.severity = warning
+# <!-- While-do footer should not be preceded by blank line -->
+dotnet_diagnostic.SA1512.severity = none
+# <!-- Single-line comments should not be followed by blank line -->
+dotnet_diagnostic.SA1513.severity = warning
+# <!-- Closing brace should be followed by blank line -->
+dotnet_diagnostic.SA1514.severity = warning
+# <!-- Element documentation header should be preceded by blank line -->
+dotnet_diagnostic.SA1515.severity = none
+# <!-- Single-line comment should be preceded by blank line -->
+dotnet_diagnostic.SA1516.severity = warning
+# <!-- Elements should be separated by blank line -->
+dotnet_diagnostic.SA1517.severity = warning
+# <!-- Code should not contain blank lines at start of file -->
+dotnet_diagnostic.SA1518.severity = warning
+# <!-- Use line endings correctly at end of file -->
+dotnet_diagnostic.SA1519.severity = none
+# <!-- Braces should not be omitted from multi-line child statement -->
+dotnet_diagnostic.SA1520.severity = none
+# <!-- Use braces consistently -->
+
+# <Rules AnalyzerId==StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.DocumentationRules">
+dotnet_diagnostic.SA1600.severity = none
+# <!-- Elements should be documented -->
+dotnet_diagnostic.SA1601.severity = none
+# <!-- Partial elements should be documented -->
+dotnet_diagnostic.SA1602.severity = none
+# <!-- Enumeration items should be documented -->
+dotnet_diagnostic.SA1603.severity = none
+# <!-- Documentation should contain valid XML -->
+dotnet_diagnostic.SA1604.severity = none
+# <!-- Element documentation should have summary -->
+dotnet_diagnostic.SA1605.severity = none
+# <!-- Partial element documentation should have summary -->
+dotnet_diagnostic.SA1606.severity = none
+# <!-- Element documentation should have summary text -->
+dotnet_diagnostic.SA1607.severity = none
+# <!-- Partial element documentation should have summary text -->
+dotnet_diagnostic.SA1608.severity = none
+# <!-- Element documentation should not have default summary -->
+dotnet_diagnostic.SA1609.severity = none
+# <!-- Property documentation should have value -->
+dotnet_diagnostic.SA1610.severity = none
+# <!-- Property documentation should have value text -->
+dotnet_diagnostic.SA1611.severity = none
+# <!-- Element parameters should be documented -->
+dotnet_diagnostic.SA1612.severity = none
+# <!-- Element parameter documentation should match element parameters -->
+dotnet_diagnostic.SA1613.severity = none
+# <!-- Element parameter documentation should declare parameter name -->
+dotnet_diagnostic.SA1614.severity = none
+# <!-- Element parameter documentation should have text -->
+dotnet_diagnostic.SA1615.severity = none
+# <!-- Element return value should be documented -->
+dotnet_diagnostic.SA1616.severity = none
+# <!-- Element return value documentation should have text -->
+dotnet_diagnostic.SA1617.severity = none
+# <!-- Void return value should not be documented -->
+dotnet_diagnostic.SA1618.severity = none
+# <!-- Generic type parameters should be documented -->
+dotnet_diagnostic.SA1619.severity = none
+# <!-- Generic type parameters should be documented partial class -->
+dotnet_diagnostic.SA1620.severity = none
+# <!-- Generic type parameter documentation should match type parameters -->
+dotnet_diagnostic.SA1621.severity = none
+# <!-- Generic type parameter documentation should declare parameter name -->
+dotnet_diagnostic.SA1622.severity = none
+# <!-- Generic type parameter documentation should have text -->
+dotnet_diagnostic.SA1623.severity = none
+# <!-- Property summary documentation should match accessors -->
+dotnet_diagnostic.SA1624.severity = none
+# <!-- Property summary documentation should omit accessor with restricted access -->
+dotnet_diagnostic.SA1625.severity = none
+# <!-- Element documentation should not be copied and pasted -->
+dotnet_diagnostic.SA1626.severity = none
+# <!-- Single-line comments should not use documentation style slashes -->
+dotnet_diagnostic.SA1627.severity = none
+# <!-- Documentation text should not be empty -->
+dotnet_diagnostic.SA1628.severity = none
+# <!-- Documentation text should begin with a capital letter -->
+dotnet_diagnostic.SA1629.severity = none
+# <!-- Documentation text should end with a period -->
+dotnet_diagnostic.SA1630.severity = none
+# <!-- Documentation text should contain whitespace -->
+dotnet_diagnostic.SA1631.severity = none
+# <!-- Documentation should meet character percentage -->
+dotnet_diagnostic.SA1632.severity = none
+# <!-- Documentation text should meet minimum character length -->
+dotnet_diagnostic.SA1633.severity = none
+# <!-- File should have header -->
+dotnet_diagnostic.SA1634.severity = none
+# <!-- File header should show copyright -->
+dotnet_diagnostic.SA1635.severity = none
+# <!-- File header should have copyright text -->
+dotnet_diagnostic.SA1636.severity = none
+# <!-- File header copyright text should match -->
+dotnet_diagnostic.SA1637.severity = none
+# <!-- File header should contain file name -->
+dotnet_diagnostic.SA1638.severity = none
+# <!-- File header file name documentation should match file name -->
+dotnet_diagnostic.SA1639.severity = none
+# <!-- File header should have summary -->
+dotnet_diagnostic.SA1640.severity = none
+# <!-- File header should have valid company text -->
+dotnet_diagnostic.SA1641.severity = none
+# <!-- File header company name text should match -->
+dotnet_diagnostic.SA1642.severity = none
+# <!-- Constructor summary documentation should begin with standard text -->
+dotnet_diagnostic.SA1643.severity = none
+# <!-- Destructor summary documentation should begin with standard text -->
+dotnet_diagnostic.SA1644.severity = none
+# <!-- Documentation headers should not contain blank lines -->
+dotnet_diagnostic.SA1645.severity = none
+# <!-- Included documentation file does not exist -->
+dotnet_diagnostic.SA1646.severity = none
+# <!-- Included documentation XPath does not exist -->
+dotnet_diagnostic.SA1647.severity = none
+# <!-- Include node does not contain valid file and path -->
+dotnet_diagnostic.SA1648.severity = none
+# <!-- Inheritdoc should be used with inheriting class -->
+dotnet_diagnostic.SA1649.severity = none
+# <!-- File name should match first type name -->
+dotnet_diagnostic.SA1650.severity = none
+# <!-- Element documentation should be spelled correctly -->
+dotnet_diagnostic.SA1651.severity = none
+# <!-- Do not use placeholder elements -->
+
+[{*.bash,*.sh,*.zsh}]
+indent_size = 2
+tab_width = 2
+
+[{*.yaml,*.yml}]
+indent_size = 2
