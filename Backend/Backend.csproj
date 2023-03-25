@@ -8,6 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+      <PackageReference Include="MathNet.Spatial" Version="0.6.0" />
       <PackageReference Include="Numerics.NET" Version="1.0.43" />
       <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
     </ItemGroup>
