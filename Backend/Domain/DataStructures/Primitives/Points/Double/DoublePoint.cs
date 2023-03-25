@@ -1,6 +1,8 @@
-﻿namespace Backend.Domain.DataStructures.Primitives;
+﻿using Backend.Domain.DataStructures.Primitives.Points.Contracts;
 
-public class DoublePoint
+namespace Backend.Domain.DataStructures.Primitives.Points.Double;
+
+public class DoublePoint : IPoint<double>
 {
     public double X { get; }
 

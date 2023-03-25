@@ -1,4 +1,6 @@
-﻿namespace Backend.Domain.DataStructures.Primitives;
+﻿using Backend.Domain.DataStructures.Primitives.Points.Double;
+
+namespace Backend.Domain.DataStructures.Primitives;
 
 public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint>
 {
@@ -24,6 +26,6 @@ public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint>
 
     public int GetHashCode(DoublePoint obj)
     {
-        return HashCode.Combine(obj.X / _coordinatesTolerance, obj.Y / _coordinatesTolerance);
+        return HashCode.Combine(obj.X, obj.Y);
     }
 }

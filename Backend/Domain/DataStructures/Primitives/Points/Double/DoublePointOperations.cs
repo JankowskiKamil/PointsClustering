@@ -1,7 +1,12 @@
 ﻿
+using System.Numerics;
+using Backend.Domain.DataStructures.Primitives.Points.Contracts;
+using Backend.Domain.DataStructures.Primitives.Points.Double;
 using MathNet.Spatial.Units;
 
 namespace Backend.Domain.DataStructures.Primitives;
+
+//TODO generic class for PointOperations?
 
 public static class DoublePointOperations
 {
@@ -9,8 +14,6 @@ public static class DoublePointOperations
     #region MovingOperations
 
     public static DoublePoint Scale(this DoublePoint point, double xScale, double yScale) => new(point.X * xScale, point.Y * yScale);
-
-    public static DoublePoint Move(this DoublePoint point, double x, double y) => new(point.X + x, point.Y + y);
 
     public static DoublePoint Negate(this DoublePoint point) => new(-point.X, -point.Y);
 
@@ -22,7 +25,7 @@ public static class DoublePointOperations
         doublePoint.X + Math.Cos(angle.Radians) * distance,
         doublePoint.Y + Math.Sin(angle.Radians) * distance);
 
-    public static DoublePoint RotatePoint(this DoublePoint point, Angle angle, DoublePoint centerPoint)
+    public static DoublePoint Rotate(this DoublePoint point, Angle angle, DoublePoint centerPoint)
     {
 
         //https://stackoverflow.com/questions/13695317/rotate-a-point-around-another-point
