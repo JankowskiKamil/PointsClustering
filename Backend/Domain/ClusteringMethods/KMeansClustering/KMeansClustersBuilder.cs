@@ -1,4 +1,4 @@
-﻿using Backend.Domain.ClusteringMethods.Contract;
+using Backend.Domain.ClusteringMethods.Contract;
 using Backend.Domain.DataStructures.Primitives;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 

@@ -1,4 +1,4 @@
-﻿namespace Backend.Domain.ClusteringMethods;
+namespace Backend.Domain.ClusteringMethods;
 
 public enum ClusteringState
 {

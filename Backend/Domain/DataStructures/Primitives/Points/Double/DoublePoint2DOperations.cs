@@ -1,4 +1,4 @@
-﻿
+
 using System.Numerics;
 using Backend.Domain.DataStructures.Primitives.Points.Contracts;
 using Backend.Domain.DataStructures.Primitives.Points.Double;

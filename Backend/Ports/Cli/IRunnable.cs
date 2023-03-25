@@ -1,4 +1,4 @@
-﻿namespace Backend.Ports.Cli;
+namespace Backend.Ports.Cli;
 
 internal interface IRunnable
 {

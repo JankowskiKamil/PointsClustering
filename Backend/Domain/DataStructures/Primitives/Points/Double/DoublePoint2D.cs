@@ -1,4 +1,4 @@
-﻿using Backend.Domain.DataStructures.Primitives.Points.Contracts;
+using Backend.Domain.DataStructures.Primitives.Points.Contracts;
 
 namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
@@ -16,7 +16,7 @@ public class DoublePoint2D : IPoint2D<double>
 
     public DoublePoint2D Clone() => new DoublePoint2D(X, Y);
 
-    public override string  ToString()
+    public override string ToString()
     {
         return $"[{X}, {Y}]";
     }

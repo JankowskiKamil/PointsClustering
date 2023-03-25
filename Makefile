@@ -58,25 +58,9 @@ check-lint-dotnet: restore
 	@echo "analyzers"
 	@dotnet format --no-restore analyzers --verbosity minimal --severity warn --verify-no-changes
 
-.PHONY: check-lint-terraform
-check-lint-terraform:
-	@echo "terraform infra"
-	@cd ./infra \
-		&& terraform validate
-
 .PHONY: fmt
-fmt: restore fmt-prettier fmt-terraform fmt-dotnet
+fmt: restore fmt-dotnet
 	@echo "fmt done"
-
-.PHONY: fmt-prettier
-fmt-prettier: restore
-	@echo "prettier"
-	@prettier --loglevel warn --write . || npx --yes prettier --loglevel warn --write .
-
-.PHONY: fmt-terraform
-fmt-terraform: restore
-	@echo "terraform"
-	@terraform fmt -recursive
 
 .PHONY: fmt-dotnet
 fmt-dotnet: restore
@@ -84,18 +68,8 @@ fmt-dotnet: restore
 	@dotnet format --no-restore whitespace --verbosity normal
 
 .PHONY: check-fmt
-check-fmt: restore check-fmt-prettier check-fmt-terraform check-fmt-dotnet
+check-fmt: restore  check-fmt-dotnet
 	@echo "check-fmt done"
-
-.PHONY: check-fmt-prettier
-check-fmt-prettier: restore
-	@echo "prettier"
-	@prettier --check . || npx --yes prettier --check .
-
-.PHONY: check-fmt-terraform
-check-fmt-terraform: restore
-	@echo "terraform"
-	@terraform fmt -check -recursive
 
 .PHONY: check-fmt-dotnet
 check-fmt-dotnet: restore

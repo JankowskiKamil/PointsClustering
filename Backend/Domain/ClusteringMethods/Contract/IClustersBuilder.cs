@@ -1,4 +1,4 @@
-﻿namespace Backend.Domain.ClusteringMethods.Contract;
+namespace Backend.Domain.ClusteringMethods.Contract;
 
 public interface IClustersBuilder
 {

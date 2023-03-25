@@ -1,4 +1,4 @@
-﻿using Backend.Domain.DataStructures.Primitives.Points.Double;
+using Backend.Domain.DataStructures.Primitives.Points.Double;
 
 namespace Backend.Domain.DataStructures.Primitives;
 
@@ -18,7 +18,7 @@ public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint2D>
             return true;
         else if (x == null || y == null)
             return false;
-        else if(Math.Abs(x.X - y.X) <= _coordinatesTolerance && Math.Abs(x.Y - y.Y) <= _coordinatesTolerance)
+        else if (Math.Abs(x.X - y.X) <= _coordinatesTolerance && Math.Abs(x.Y - y.Y) <= _coordinatesTolerance)
             return true;
         else
             return false;

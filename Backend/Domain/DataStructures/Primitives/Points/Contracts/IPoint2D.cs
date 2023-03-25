@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 
 namespace Backend.Domain.DataStructures.Primitives.Points.Contracts;
 

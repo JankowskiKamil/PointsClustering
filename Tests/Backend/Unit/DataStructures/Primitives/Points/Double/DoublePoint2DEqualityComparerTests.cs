@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 using Backend.Domain.DataStructures.Primitives;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 using Shouldly;
