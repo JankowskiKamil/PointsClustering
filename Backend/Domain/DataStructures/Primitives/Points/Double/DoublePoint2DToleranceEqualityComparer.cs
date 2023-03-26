@@ -1,11 +1,11 @@
 namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
-public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint2D>
+public class DoublePoint2DToleranceEqualityComparer : IEqualityComparer<DoublePoint2D>
 {
 
     private readonly double _coordinatesTolerance;
 
-    public DoublePointEqualityComparer(double coordinatesTolerance = 0.0001)
+    public DoublePoint2DToleranceEqualityComparer(double coordinatesTolerance = 0.0001)
     {
         _coordinatesTolerance = coordinatesTolerance;
     }
