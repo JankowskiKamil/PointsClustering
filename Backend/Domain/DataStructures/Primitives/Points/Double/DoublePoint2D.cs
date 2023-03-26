@@ -14,7 +14,7 @@ public class DoublePoint2D : IPoint2D<double>
         Y = y;
     }
 
-    public DoublePoint2D Clone() => new DoublePoint2D(X, Y);
+    public DoublePoint2D Clone() => new(X, Y);
 
     public override string ToString()
     {

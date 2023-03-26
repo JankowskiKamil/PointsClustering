@@ -1,6 +1,4 @@
-using Backend.Domain.DataStructures.Primitives.Points.Double;
-
-namespace Backend.Domain.DataStructures.Primitives;
+namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
 public class DoublePointEqualityComparer : IEqualityComparer<DoublePoint2D>
 {

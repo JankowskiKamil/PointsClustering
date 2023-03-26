@@ -1,4 +1,3 @@
-using Backend.Domain.DataStructures.Primitives;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 using MathNet.Spatial.Units;
 using Shouldly;
@@ -6,10 +5,10 @@ using Xunit;
 
 namespace Tests.Backend.Unit.DataStructures.Primitives.Points.Double;
 
-public class DoublePointTests
+public static class DoublePointTests
 {
     [Fact]
-    public void AddOtherPointReturnsProperPoint()
+    public static void AddOtherPointReturnsProperPoint()
     {
         var p1 = new DoublePoint2D(5, 10);
         var p2 = new DoublePoint2D(-1, -5);
@@ -19,7 +18,7 @@ public class DoublePointTests
     }
 
     [Fact]
-    public void MinusOtherPointReturnsProperPoint()
+    public static void MinusOtherPointReturnsProperPoint()
     {
         var p1 = new DoublePoint2D(5, 10);
         var p2 = new DoublePoint2D(-1, -5);
@@ -30,7 +29,7 @@ public class DoublePointTests
 
 
     [Fact]
-    public void NegatePointReturnsProperPoint()
+    public static void NegatePointReturnsProperPoint()
     {
         var p1 = new DoublePoint2D(5, 10);
         var result = p1.Negate();
@@ -39,7 +38,7 @@ public class DoublePointTests
     }
 
     [Fact]
-    public void ProjectPointReturnsProperPoint()
+    public static void ProjectPointReturnsProperPoint()
     {
         var p1 = new DoublePoint2D(0, 0);
         var angle = Angle.FromDegrees(90);
@@ -49,7 +48,7 @@ public class DoublePointTests
     }
 
     [Fact]
-    public void RotatePointReturnsProperPoint()
+    public static void RotatePointReturnsProperPoint()
     {
         var p1 = new DoublePoint2D(0, 0);
         var center = new DoublePoint2D(10, 0);
@@ -60,7 +59,7 @@ public class DoublePointTests
     }
 
     [Fact]
-    public void DistanceToPointReturnsProperValue()
+    public static void DistanceToPointReturnsProperValue()
     {
         var p1 = new DoublePoint2D(0, 0);
         var p2 = new DoublePoint2D(0, 10);

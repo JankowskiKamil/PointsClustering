@@ -1,5 +1,4 @@
 using Backend.Domain.ClusteringMethods.Contract;
-using Backend.Domain.DataStructures.Primitives;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 
 namespace Backend.Domain.ClusteringMethods.KMeansClustering;
@@ -21,10 +20,7 @@ public class KMeansCluster : ICluster
     /// <summary>
     /// Members of this cluster
     /// </summary>
-    public IReadOnlyList<DoublePoint2D> Points
-    {
-        get { return _points; }
-    }
+    public IReadOnlyList<DoublePoint2D> Points => _points;
 
     #endregion
 

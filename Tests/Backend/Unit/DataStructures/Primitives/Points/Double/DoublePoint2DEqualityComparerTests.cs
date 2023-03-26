@@ -1,15 +1,13 @@
-using System.Drawing;
-using Backend.Domain.DataStructures.Primitives;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 using Shouldly;
 using Xunit;
 
 namespace Tests.Backend.Unit.DataStructures.Primitives.Points.Double;
 
-public class DoublePointEqualityComparerTests
+public static class DoublePointEqualityComparerTests
 {
     [Fact]
-    public void EqualsTwoSamePointsWithoutToleranceReturnsTrue()
+    public static void EqualsTwoSamePointsWithoutToleranceReturnsTrue()
     {
         var comparer = new DoublePointEqualityComparer(0);
         var p1 = new DoublePoint2D(0, 0);
@@ -17,7 +15,7 @@ public class DoublePointEqualityComparerTests
         comparer.Equals(p1, p2).ShouldBeTrue();
     }
     [Fact]
-    public void EqualsTwoDifferentPointsWithoutToleranceReturnsFalse()
+    public static void EqualsTwoDifferentPointsWithoutToleranceReturnsFalse()
     {
         var comparer = new DoublePointEqualityComparer(0);
         var p1 = new DoublePoint2D(0, 0);
@@ -25,7 +23,7 @@ public class DoublePointEqualityComparerTests
         comparer.Equals(p1, p2).ShouldBeFalse();
     }
     [Fact]
-    public void EqualsTwoSamePointsWithToleranceReturnsTrue()
+    public static void EqualsTwoSamePointsWithToleranceReturnsTrue()
     {
         var comparer = new DoublePointEqualityComparer(0.001);
         var p1 = new DoublePoint2D(0, 0);
@@ -33,7 +31,7 @@ public class DoublePointEqualityComparerTests
         comparer.Equals(p1, p2).ShouldBeTrue();
     }
     [Fact]
-    public void EqualsTwoSamePointsWithTooBigToleranceReturnsTrue()
+    public static void EqualsTwoSamePointsWithTooBigToleranceReturnsTrue()
     {
         var comparer = new DoublePointEqualityComparer(10);
         var p1 = new DoublePoint2D(0, 0);
@@ -41,7 +39,7 @@ public class DoublePointEqualityComparerTests
         comparer.Equals(p1, p2).ShouldBeTrue();
     }
     [Fact]
-    public void EqualsTwoDifferentPointsWithToleranceReturnsFalse()
+    public static void EqualsTwoDifferentPointsWithToleranceReturnsFalse()
     {
         var comparer = new DoublePointEqualityComparer(0.001);
         var p1 = new DoublePoint2D(0, 0);
@@ -49,27 +47,25 @@ public class DoublePointEqualityComparerTests
         comparer.Equals(p1, p2).ShouldBeFalse();
     }
     [Fact]
-    public void EqualsTwoSamePointsReturnsCorrectHashSet()
+    public static void EqualsTwoSamePointsReturnsCorrectHashSet()
     {
         var comparer = new DoublePointEqualityComparer(0.001);
         var p1 = new DoublePoint2D(0, 0);
         var p2 = new DoublePoint2D(0, 0);
 
-        var hashSet = new HashSet<DoublePoint2D>(comparer);
-        hashSet.Add(p1);
+        var hashSet = new HashSet<DoublePoint2D>(comparer) { p1 };
         hashSet.Count.ShouldBe(1);
         hashSet.Add(p2);
         hashSet.Count.ShouldBe(1);
     }
     [Fact]
-    public void EqualsTwoDifferentPointsReturnsCorrectHashSet()
+    public static void EqualsTwoDifferentPointsReturnsCorrectHashSet()
     {
         var comparer = new DoublePointEqualityComparer(0.001);
         var p1 = new DoublePoint2D(0, 0);
         var p2 = new DoublePoint2D(10, 0);
 
-        var hashSet = new HashSet<DoublePoint2D>(comparer);
-        hashSet.Add(p1);
+        var hashSet = new HashSet<DoublePoint2D>(comparer) { p1 };
         hashSet.Count.ShouldBe(1);
         hashSet.Add(p2);
         hashSet.Count.ShouldBe(2);
