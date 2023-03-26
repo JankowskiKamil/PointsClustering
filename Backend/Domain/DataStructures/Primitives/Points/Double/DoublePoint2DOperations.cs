@@ -1,10 +1,4 @@
-
-using System.Numerics;
-using Backend.Domain.DataStructures.Primitives.Points.Contracts;
-using Backend.Domain.DataStructures.Primitives.Points.Double;
-using MathNet.Spatial.Units;
-
-namespace Backend.Domain.DataStructures.Primitives;
+namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
 //TODO generic class for PointOperations?
 
