@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net7.0": {
+      "MathNet.Numerics": {
+        "type": "Direct",
+        "requested": "[5.0.0, )",
+        "resolved": "5.0.0",
+        "contentHash": "pg1W2VwaEQMAiTpGK840hZgzavnqjlCMTVSbtVCXVyT+7AX4mc1o89SPv4TBlAjhgCOo9c1Y+jZ5m3ti2YgGgA=="
+      },
+      "MathNet.Spatial": {
+        "type": "Direct",
+        "requested": "[0.6.0, )",
+        "resolved": "0.6.0",
+        "contentHash": "suGp382PvzFjgIGbF2ehv7NjoBt3ub4U2eZqhBpZkcc/FjQ9oDwUwKxO8eCxVgOHj2kMJn0Eh6Nnp+42JLSRwg==",
+        "dependencies": {
+          "MathNet.Numerics": "4.9.1",
+          "System.Diagnostics.Contracts": "4.3.0"
+        }
+      },
+      "Numerics.NET": {
+        "type": "Direct",
+        "requested": "[1.0.43, )",
+        "resolved": "1.0.43",
+        "contentHash": "DqcJiAVrDMa43AFsQYWAyoasPs3DEtXCVNgq8JUi3z9ZlV6hhkHEJ/7HgmxBKaRfm3A78lnulBJltY9uOVKM0w=="
+      },
+      "System.Numerics.Vectors": {
+        "type": "Direct",
+        "requested": "[4.5.0, )",
+        "resolved": "4.5.0",
+        "contentHash": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ=="
+      },
+      "Microsoft.NETCore.Platforms": {
+        "type": "Transitive",
+        "resolved": "1.1.0",
+        "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
+      },
+      "Microsoft.NETCore.Targets": {
+        "type": "Transitive",
+        "resolved": "1.1.0",
+        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
+      },
+      "System.Diagnostics.Contracts": {
+        "type": "Transitive",
+        "resolved": "4.3.0",
+        "contentHash": "eelRRbnm+OloiQvp9CXS0ixjNQldjjkHO4iIkR5XH2VIP8sUB/SIpa1TdUW6/+HDcQ+MlhP3pNa1u5SbzYuWGA==",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime": {
+        "type": "Transitive",
+        "resolved": "4.3.0",
+        "contentHash": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      }
+    }
+  }
+}
