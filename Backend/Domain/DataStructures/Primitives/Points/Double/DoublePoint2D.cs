@@ -1,24 +1,29 @@
-using Backend.Domain.DataStructures.Primitives.Points.Contracts;
-
 namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
-public class DoublePoint2D : IPoint2D<double>
+public class DoublePoint2D : Point2D<double>
 {
-    public double X { get; }
-
-    public double Y { get; }
-
-    public DoublePoint2D(double x, double y)
+    public DoublePoint2D(double x, double y) : base(x, y)
     {
-        X = x;
-        Y = y;
+
     }
 
     public DoublePoint2D Clone() => new(X, Y);
 
-    public override string ToString()
+    //TODO improve Point2D Equals method
+    #region Equals
+
+    public bool Equals(DoublePoint2D other)
     {
-        return $"[{X}, {Y}]";
+        return X.Equals(other.X) && Y.Equals(other.Y);
     }
+    public override bool Equals(object? obj)
+    {
+        return obj is DoublePoint2D point && Equals(point);
+    }
+
+    public override int GetHashCode() => HashCode.Combine(X, Y);
+
+    #endregion
+
 
 }

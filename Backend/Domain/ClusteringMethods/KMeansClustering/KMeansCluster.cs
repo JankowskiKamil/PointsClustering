@@ -1,4 +1,5 @@
 using Backend.Domain.ClusteringMethods.Contract;
+using Backend.Domain.DataStructures.Primitives.Points;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 
 namespace Backend.Domain.ClusteringMethods.KMeansClustering;

@@ -1,3 +1,4 @@
+using Backend.Domain.DataStructures.Primitives.Points;
 using Backend.Domain.DataStructures.Primitives.Points.Double;
 using MathNet.Spatial.Units;
 using Shouldly;
@@ -5,7 +6,7 @@ using Xunit;
 
 namespace Tests.Backend.Unit.DataStructures.Primitives.Points.Double;
 
-public static class DoublePointTests
+public static class DoublePoint2DTests
 {
     [Fact]
     public static void AddOtherPointReturnsProperPoint()
@@ -64,5 +65,29 @@ public static class DoublePointTests
         var p1 = new DoublePoint2D(0, 0);
         var p2 = new DoublePoint2D(0, 10);
         p1.DistanceTo(p2).ShouldBe(10);
+    }
+
+    [Fact]
+    public static void EqualsTwoSamePointsReturnsCorrectHashSet()
+    {
+
+        var p1 = new DoublePoint2D(0, 0);
+        var p2 = new DoublePoint2D(0, 0);
+
+        var hashSet = new HashSet<DoublePoint2D>() { p1 };
+        hashSet.Count.ShouldBe(1);
+        hashSet.Add(p2);
+        hashSet.Count.ShouldBe(1);
+    }
+    [Fact]
+    public static void EqualsTwoDifferentPointsReturnsCorrectHashSet()
+    {
+        var p1 = new DoublePoint2D(0, 0);
+        var p2 = new DoublePoint2D(10, 0);
+
+        var hashSet = new HashSet<DoublePoint2D>() { p1 };
+        hashSet.Count.ShouldBe(1);
+        hashSet.Add(p2);
+        hashSet.Count.ShouldBe(2);
     }
 }

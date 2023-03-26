@@ -2,7 +2,7 @@ namespace Backend.Domain.DataStructures.Primitives.Points.Double;
 
 //TODO generic class for PointOperations?
 
-public static class DoublePointOperations
+public static class DoublePoint2DOperations
 {
 
     #region MovingOperations
@@ -37,30 +37,5 @@ public static class DoublePointOperations
     }
 
     #endregion
-
-    #region DistanceMethods
-
-    public static double SquaredDistance(this DoublePoint2D point) => point.X * point.X + point.Y * point.Y;
-
-    public static double SquaredDistanceTo(this DoublePoint2D point, DoublePoint2D other)
-    {
-        var dx = other.X - point.X;
-        var dy = other.Y - point.Y;
-        return dx * dx + dy * dy;
-    }
-
-    public static double Distance(this DoublePoint2D point) => Math.Sqrt(point.SquaredDistance());
-
-    public static double DistanceTo(this DoublePoint2D point, DoublePoint2D other) =>
-        Math.Sqrt(point.SquaredDistanceTo(other));
-
-    #endregion
-
-
-
-
-
-
-
 
 }
